@@ -4,7 +4,7 @@ function distanceFromHqInBlocks(pickup) {
 }
 
 function distanceFromHqInFeet(pickup) {
-    return pickup < 42 ? 8 * 264 : (pickup - 42) * 264;
+    return distanceFromHqInBlocks(pickup) * 264;
 }
 
 function distanceTravelledInFeet(start, destination) {
@@ -12,7 +12,7 @@ function distanceTravelledInFeet(start, destination) {
 }
 
 function calculatesFarePrice(start, destination) {
-    let distanceInFeet = (start - destination) * 264;
+    let distanceInFeet = distanceTravelledInFeet(start, destination);
 
     switch (true) {
         case (distanceInFeet < 400):
